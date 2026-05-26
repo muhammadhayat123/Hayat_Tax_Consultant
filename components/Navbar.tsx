@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, PhoneCall } from "lucide-react";
@@ -45,13 +46,25 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 group">
-          <span className="font-serif text-xl md:text-2xl font-bold tracking-wider text-luxury-white">
-            HAYAT<span className="text-luxury-gold transition-colors duration-300 group-hover:text-luxury-goldSoft"> TAX</span>
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.2em] px-2 py-0.5 border border-luxury-gold text-luxury-gold rounded bg-luxury-gold/5 hidden sm:inline-block font-sans">
-            & Co.
-          </span>
+        <Link href="/" className="flex items-center space-x-3 group">
+          <div className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-white p-1 rounded-xl border border-luxury-gold/40 shadow-[0_0_12px_rgba(212,175,55,0.3)] transition-all duration-300 group-hover:scale-105 group-hover:border-luxury-gold">
+            <Image
+              src="/logo.png"
+              alt="Hayat Tax Consultants Logo"
+              fill
+              sizes="(max-w-768px) 48px, 56px"
+              className="object-contain p-0.5"
+              priority
+            />
+          </div>
+          <div className="flex items-center space-x-2">
+            <span className="font-serif text-xl md:text-2xl font-bold tracking-wider text-luxury-white">
+              HAYAT<span className="text-luxury-gold transition-colors duration-300 group-hover:text-luxury-goldSoft"> TAX</span>
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.2em] px-2 py-0.5 border border-luxury-gold text-luxury-gold rounded bg-luxury-gold/5 hidden sm:inline-block font-sans">
+              & Co.
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}
